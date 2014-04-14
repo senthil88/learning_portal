@@ -1,0 +1,32 @@
+@import "bootstrap"
+@import "bootstrap/variables"
+@import "jquery.ui.all"
+
+$theme-color: #294e65
+$header-color: #FFFFFF
+
+h3
+  color: $theme-color
+
+h1.page-header
+  color: $theme-color
+
+.modal-header
+  background-color: $theme-color
+
+.navbar
+  background-color: $header-color
+  border-color: $header-color
+
+.modal-lg
+  width: 750px
+
+.navbar-nav > li > a
+  font-size: 20px
+  color: #022D4F
+
+.navbar-brand
+  @include text-hide
+  background-image: image-url("logo.png")
+  height: 50px
+  width: 250px
