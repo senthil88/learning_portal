@@ -1,0 +1,5 @@
+- alert_types = {:alert => 'warning', :error => 'error', :notice => 'info', :success => 'success'}
+- flash.each do |type, message|
+  %div.text-center.alert{ "data-alert" => "alert", :class => "alert-#{alert_types[type]}" }
+    %button(class="close" data-dismiss="alert")×
+    = message

@@ -1,0 +1,11 @@
+.search_box
+.container
+  %h1.page-header.text-center= @course.name
+  .row
+  - @course.tutorials.each do |tutorial|
+    .col-xs-12.col-sm-6
+      = link_to(home_course_url(tutorial.id)) do
+        %h1.page-header.text-center= tutorial.title
+      .text-center
+        %img{src: tutorial.image_url}
+      %p.text-info.text-description= tutorial.description

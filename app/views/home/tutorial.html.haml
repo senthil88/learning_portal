@@ -1,0 +1,35 @@
+.search_box.animate
+  .container
+    .row
+      %h1.text-center.title= @tutorial.title
+    .row
+      .col-md-4.col-md-offset-2
+        - @tutorial.tags.each do |tag|
+          %p.btn.btn-primary.tag= tag.name
+      .col-md-3.col-md-offset-1.description
+        = @tutorial.description
+      .col-md-2
+
+.container
+  .row
+    - @tutorial.videos.each do |video|
+      .col-md-6.bottom-space
+        .row
+          .col-md-10.video
+            %img.position-image.course-image{src: video.image_url}
+            %a.btn.btn-watch.position-video.big-icon.watch-now.glyphicon.glyphicon-facetime-video{"data-toggle" => "modal", "data-target" => ".popup-video", "data-url" => video.file, "data-header" => video.title}
+            %h3.place.a-title
+              = video.title
+            %p.text-info.text-description.place= video.description
+          .col-md-2
+
+
+.modal.fade.popup-video{tabindex: -1, role: "dialog", :"aria-hidden" => "true"}
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", "aria-hidden" => "true"} ×
+        %h4.modal-title.video-title
+      .modal-body
+        %video{:width => 700, :height => 400, :class => "sublime", :id => "video-player"}
+          %source{:src => '', class: 'video-source'}

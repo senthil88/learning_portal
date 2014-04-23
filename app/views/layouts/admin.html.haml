@@ -1,0 +1,26 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %title Video Portal
+    = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/common/header'
+    %nav#navigation-main
+    - if @current_user && @current_user.is_admin
+      .row
+        .col-md-2.nav-side
+          %ul.list-unstyled.side-li
+            %li
+              = link_to courses_path do
+                %span.glyphicon.glyphicon-book Courses
+            %li
+              = link_to users_path do
+                %span.glyphicon.glyphicon-user Users
+            %li
+              = link_to tags_path do
+                %span.glyphicon.glyphicon-tags Tags
+        .col-md-10.nav-main
+          = render 'layouts/common/flash_message'
+          = yield

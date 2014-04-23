@@ -1,0 +1,14 @@
+.search_box.animate
+  .container
+    .row
+      %h1.text-center.title.title-3d Learning Portal
+.container
+  .row
+    - @courses.each do |course|
+      .col-md-6
+        = link_to(home_course_url(course.id), class: 'a-title') do
+          %h1.page-header.text-center= course.name
+        .text-center
+          = link_to(home_course_url(course.id)) do
+            %img{src: course.image_url}
+        %p.text-info.text-description= course.description

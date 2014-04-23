@@ -1,0 +1,30 @@
+%nav.navbar.navbar-top.nav-course{role: 'navigation'}
+  .container
+    .navbar-header
+      %button.navbar-toggle{data: {target: '.navbar-collapse', toggle: 'collapse'}, type: 'button'}
+        %span.sr-only= t '.toggle_navigation'
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Video Portal', root_path, class: 'navbar-brand'
+    - if @current_user
+      %nav.navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li
+            = link_to 'Courses', '/'
+          - if @tutorial.present? && !request.path.split('/').include?('admin')
+            %li
+              = link_to '->', 'javascript:;'
+            %li
+              = link_to "#{@tutorial.course.name} Tutorials", home_course_path(@tutorial.course)
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            %a.dropdown-toggle{href: '#', 'data-toggle' => 'dropdown'}
+              = current_user.name
+              %b.caret
+            %ul.dropdown-menu
+              - if @current_user.is_admin
+                %li= link_to 'Admin Panel', courses_path
+              %li
+                = link_to signout_path do
+                  %span.glyphicon.glyphicon-off Logout

@@ -1,0 +1,11 @@
+.search_box.animate
+  .container
+    .row
+      %h1.text-center.title Login
+    .row
+      .col-md-6.col-md-offset-4.login-form
+        = simple_form_for :user, html: {class: 'form-horizontal'}, url: '/sessions/create' do |f|
+          = f.input :username, required: false, placeholder: 'LDAP Username'
+          = f.input :password, required: false, placeholder: 'LDAP Password'
+          .form-actions
+            = f.button :submit, 'Go', :class => 'btn-primary col-md-offset-2'
