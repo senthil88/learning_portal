@@ -3,3 +3,5 @@
 #= require 'jquery.ui.autocomplete'
 #= require 'turbolinks'
 #= require 'bootstrap'
+#= require 'sublimevideo'
+#= require 'courses'
