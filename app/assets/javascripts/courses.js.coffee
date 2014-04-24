@@ -19,6 +19,14 @@ course_on_load = ->
       else
         $(this).hide('blind')
 
+  ### Set dynamic video source ###
+  $('.watch-now').click ->
+    self = $(this)
+    sublime.unprepare('video-player')
+    $('.video-source').attr('src', self.attr('data-url'))
+    $('.video-title').text(self.attr('data-header'))
+    sublime.prepare('video-player')
+
 ### Load after document ready ###
 $(document).ready course_on_load
 
