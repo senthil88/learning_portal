@@ -1,0 +1,15 @@
+- name: "Ruby"
+  image_url: "IMAGE URL"
+  description: "DESCRIPTION"
+  tutorials:
+    - title: "TUTORIAL - TITLE"
+      image_url: "TUTORIAL - IMAGE URL"
+      description: "TUTORIAL -DESCRIPTION"
+      tags:
+        - name: 'TAG1'
+        - name: 'TAG2'
+      videos:
+        - title: "VIDEO TITLE"
+          image_url: "VIDEO - IMAGE URL"
+          description: "VIDEO - DESCRIPTION"
+          video_url: "VIDEO _ VIDEO URL"
