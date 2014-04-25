@@ -27,6 +27,21 @@ course_on_load = ->
     $('.video-title').text(self.attr('data-header'))
     sublime.prepare('video-player')
 
+  ### Token field for tag input ###
+  $(".selectpicker").tokenfield
+    autocomplete:
+      source: (request, response) ->
+        $.getJSON "/admin/tags", q: {name_cont: request.term}, (data) ->
+          results = $.map(data, (tag) ->
+           {'label': tag.name, 'value': tag.id}
+          )
+          response results
+
+  if $('.selectpicker').length > 0
+    $('.selectpicker').tokenfield('setTokens', JSON.parse($('.selectpicker').attr('data')))
+
+  $('.animate').animate({'margin-left': '0px'});
+
 ### Load after document ready ###
 $(document).ready course_on_load
 
