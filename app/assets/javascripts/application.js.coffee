@@ -4,4 +4,5 @@
 #= require 'turbolinks'
 #= require 'bootstrap'
 #= require 'sublimevideo'
+#= require 'bootstrap-tokenfield'
 #= require 'courses'
