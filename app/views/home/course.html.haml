@@ -19,7 +19,7 @@
       .row
         .col-md-10.video
           = link_to(home_tutorial_url(tutorial.id)) do
-            %img.position-image.course-image{src: tutorial.image_url}
+            = set_image tutorial.image_url, class: "position-image course-image"
           = link_to(home_tutorial_url(tutorial.id), class: 'a-title') do
             %h3.place.a-title= tutorial.title
           %p.place.text-info.text-description= tutorial.description

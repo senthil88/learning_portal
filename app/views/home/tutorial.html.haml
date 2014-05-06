@@ -16,7 +16,7 @@
       .col-md-6.bottom-space
         .row
           .col-md-10.video
-            %img.position-image.course-image{src: video.image_url}
+            = set_image video.image_url, class: "position-image course-image"
             %a.btn.btn-watch.position-video.big-icon.watch-now.glyphicon.glyphicon-facetime-video{"data-toggle" => "modal", "data-target" => ".popup-video", "data-url" => video.file, "data-header" => video.title}
             %h3.place.a-title
               = video.title

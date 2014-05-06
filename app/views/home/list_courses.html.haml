@@ -10,5 +10,5 @@
           %h1.page-header.text-center= course.name
         .text-center
           = link_to(home_course_url(course.id)) do
-            %img{src: course.image_url}
+            = set_image course.image_url
         %p.text-info.text-description= course.description
