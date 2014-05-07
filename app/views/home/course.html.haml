@@ -1,3 +1,8 @@
+- content_for(:nav_bar) do
+  - if @course.present?
+    %li
+      = link_to 'Courses', '/'
+
 .search_box.animate
   .container
     .row

@@ -10,13 +10,8 @@
     - if @current_user
       %nav.navbar-collapse.collapse
         %ul.nav.navbar-nav
-          %li
-            = link_to 'Courses', '/'
-          - if @tutorial.present? && !request.path.split('/').include?('admin')
-            %li
-              = link_to '->', 'javascript:;'
-            %li
-              = link_to "#{@tutorial.course.name} Tutorials", home_course_path(@tutorial.course)
+          - if content_for? :nav_bar
+            = yield :nav_bar
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{href: '#', 'data-toggle' => 'dropdown'}
