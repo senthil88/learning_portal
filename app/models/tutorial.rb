@@ -3,9 +3,9 @@ class Tutorial < ActiveRecord::Base
 
   # Associations
 
-    has_many :videos, -> { order(created_at: :asc) }, dependent: :destroy
+    has_many :videos, -> { order(created_at: :asc) }, inverse_of: :tutorial, dependent: :destroy
     has_and_belongs_to_many :tags
-    belongs_to :course
+    belongs_to :course, inverse_of: :tutorials
 
   # Attributes
 

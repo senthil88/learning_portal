@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
 
   # Associations
 
-    belongs_to :tutorial
+    belongs_to :tutorial, inverse_of: :videos
 
   # Attributes
 

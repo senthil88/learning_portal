@@ -3,7 +3,7 @@ class Course < ActiveRecord::Base
 
   # Associations
 
-    has_many :tutorials, dependent: :destroy
+    has_many :tutorials, inverse_of: :course, dependent: :destroy
     has_many :tags, through: :tutorials
 
   # Attributes
