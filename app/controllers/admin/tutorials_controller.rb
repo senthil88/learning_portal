@@ -1,4 +1,4 @@
-class TutorialsController < ApplicationController
+class Admin::TutorialsController < ApplicationController
   layout 'admin'
 
   before_filter :load_course

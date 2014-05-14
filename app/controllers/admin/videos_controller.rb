@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class Admin::VideosController < ApplicationController
   layout 'admin'
 
   before_filter :load_tutorial

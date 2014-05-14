@@ -13,13 +13,13 @@
         .col-md-2.nav-side
           %ul.list-unstyled.side-li
             %li
-              = link_to courses_path do
+              = link_to admin_courses_path do
                 %span.glyphicon.glyphicon-book Courses
             %li
-              = link_to users_path do
+              = link_to admin_users_path do
                 %span.glyphicon.glyphicon-user Users
             %li
-              = link_to tags_path do
+              = link_to admin_tags_path do
                 %span.glyphicon.glyphicon-tags Tags
         .col-md-10.nav-main
           = render 'layouts/common/flash_message'

@@ -1,4 +1,4 @@
-class TagsController < ApplicationController
+class Admin::TagsController < ApplicationController
   layout 'admin'
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
@@ -19,17 +19,17 @@ class TagsController < ApplicationController
     @tag = Tag.new
   end
 
-  # GET /tags/1/edit
+# GET /tags/1/edit
   def edit
   end
 
   # POST /tags
   # POST /tags.json
   def create
-    @tag = Tag.new(tag_params)
+            @tag = Tag.new(tag_params)
 
     respond_to do |format|
-      if @tag.save
+       if @tag.save
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tag }
       else

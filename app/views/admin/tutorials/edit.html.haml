@@ -5,3 +5,7 @@
       Course(#{@course.name}) ->
       = t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
 = render :partial => "form"
+
+- content_for(:javascript) do
+  :javascript
+    $('.selectpicker').tokenfield('setTokens', JSON.parse($('.selectpicker').attr('data')))

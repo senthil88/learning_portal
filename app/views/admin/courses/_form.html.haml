@@ -1,7 +1,7 @@
-= simple_form_for @course, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for [:admin, @course], :html => { :class => 'form-horizontal' } do |f|
   = f.input :name
   = f.input :image_url
   = f.input :description, input_html: { class: 'admin-description' }
   .form-actions
     = f.button :submit, :class => 'btn-primary col-md-offset-2'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), courses_path, :class => 'btn'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), admin_courses_path, :class => 'btn'

@@ -1,7 +1,7 @@
 VideoPortal::Application.routes.draw do
   root 'home#list_courses'
 
-  scope '/admin' do
+  namespace :admin do
     resources :tags
     resources :users
 
