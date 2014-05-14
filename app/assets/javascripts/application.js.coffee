@@ -6,3 +6,4 @@
 #= require 'sublimevideo'
 #= require 'bootstrap-tokenfield'
 #= require 'courses'
+#= require 'superfish'
