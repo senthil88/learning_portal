@@ -6,9 +6,9 @@
   .row
     - @courses.each do |course|
       .col-md-6
-        = link_to(home_course_url(course.id), class: 'a-title') do
+        = link_to(course_path(course.id), class: 'a-title') do
           %h1.page-header.text-center= course.name
         .text-center
-          = link_to(home_course_url(course.id)) do
+          = link_to(course_path(course.id)) do
             = set_image course.image_url
         %p.text-info.text-description= course.description

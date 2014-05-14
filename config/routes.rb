@@ -1,5 +1,8 @@
 VideoPortal::Application.routes.draw do
-  root 'home#list_courses'
+  root 'courses#index'
+
+  resources :courses, only: [:index, :show]
+  resources :tutorials, only: [:show]
 
   namespace :admin do
     resources :tags
@@ -13,9 +16,6 @@ VideoPortal::Application.routes.draw do
       resources :videos
     end
   end
-
-  get 'courses/:id' => 'home#course', as: :home_course
-  get 'tutorial/:id' => 'home#tutorial', as: :home_tutorial
 
   get "signin" => "sessions#new"
   post "sessions/create"

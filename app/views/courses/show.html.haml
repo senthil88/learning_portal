@@ -11,7 +11,7 @@
       .col-md-4.col-md-offset-2
         - if @course.tags.count > 0
           %p.btn.btn-primary.tag All
-        - @course.tags.select(:name).distinct.each do |tag|
+        - @course.tags.uniq.each do |tag|
           %p.btn.btn-primary.tag= tag.name
       .col-md-3.col-md-offset-1.description
         = @course.description
@@ -23,9 +23,9 @@
     .col-md-6.bottom-space.tag-item{"data-tag" => tutorial.tags.pluck(:name).join(",")}
       .row
         .col-md-10.video
-          = link_to(home_tutorial_url(tutorial.id)) do
+          = link_to(tutorial_path(tutorial)) do
             = set_image tutorial.image_url, class: "position-image course-image"
-          = link_to(home_tutorial_url(tutorial.id), class: 'a-title') do
+          = link_to(tutorial_path(tutorial), class: 'a-title') do
             %h3.place.a-title= tutorial.title
           %p.place.text-info.text-description= tutorial.description
         .col-md-2
