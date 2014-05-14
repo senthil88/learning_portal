@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TagsControllerTest < ActionController::TestCase
+class Admin::TagsControllerTest < ActionController::TestCase
   setup do
     @tag = tags(:one)
   end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VideosControllerTest < ActionController::TestCase
+class Admin::VideosControllerTest < ActionController::TestCase
   setup do
     @video = videos(:one)
   end
