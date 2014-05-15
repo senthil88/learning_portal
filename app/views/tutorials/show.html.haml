@@ -15,7 +15,7 @@
           %i.glyphicon.glyphicon-home
           Home
       %li
-        = link_to tutorial_path(@tutorial.course.id) do
+        = link_to course_path(@tutorial.course.id) do
           %i.glyphicon.glyphicon-folder-open
           = @tutorial.course.name
       %li.active
