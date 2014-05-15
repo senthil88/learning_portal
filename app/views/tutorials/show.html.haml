@@ -1,38 +1,46 @@
-- content_for(:nav_bar) do
-  - if @tutorial.present?
-    %li
-      = link_to 'Courses', '/'
-    %li
-      = link_to '->', 'javascript:;'
-    %li
-      = link_to "#{@tutorial.course.name} Tutorials", course_path(@tutorial.course)
+- content_for('sub-header') do
+  %section#sub-header.pattern_2
+    .container
+      .row
+        .col-md-12.text-center.animate
+          %h1.title-3d= @tutorial.title
+          %p.lead= @tutorial.description
+    .divider_top
 
+- content_for('breadcrumbs') do
+  .container{style: 'text-align: center;'}
+    %ol.breadcrumb
+      %li
+        = link_to root_url do
+          %i.glyphicon.glyphicon-home
+          Home
+      %li
+        = link_to tutorial_path(@tutorial.course.id) do
+          %i.glyphicon.glyphicon-folder-open
+          = @tutorial.course.name
+      %li.active
+        %i.glyphicon.glyphicon-pushpin
+        = @tutorial.title
 
-.search_box.animate
+%section#strips-course.style_2
   .container
-    .row
-      %h1.text-center.title= @tutorial.title
-    .row
-      .col-md-4.col-md-offset-2
-        - @tutorial.tags.each do |tag|
-          %p.btn.btn-primary.tag= tag.name
-      .col-md-3.col-md-offset-1.description
-        = @tutorial.description
-      .col-md-2
-
-.container
-  .row
     - @tutorial.videos.each do |video|
-      .col-md-6.bottom-space
-        .row
-          .col-md-10.video
-            = set_image video.image_url, class: "position-image course-image"
-            %a.btn.btn-watch.position-video.big-icon.watch-now.glyphicon.glyphicon-facetime-video{"data-toggle" => "modal", "data-target" => ".popup-video", "data-url" => video.file, "data-header" => video.title}
-            %h3.place.a-title
-              = video.title
-            %p.text-info.text-description.place= video.description
-          .col-md-2
+      %article.row
+        .col-md-3.col-sm-3.hidden-xs.text-center
+          %img{alt: "", src: video.image_url, class: 'image-design'}
+        .col-md-9.col-sm-9
+          %h3= video.title
+          %p= video.description
 
+          %ul.data-lessons
+            %li.po-markup
+              %a.po-link
+                %i.glyphicon.glyphicon-time
+                Created #{video.created_at.strftime('%d-%b-%Y')}
+
+          %a.button_medium.watch-now{"href" => "course_timeline.html",
+            "data-toggle" => "modal", "data-target" => ".popup-video",
+            "data-url" => video.file, "data-header" => video.title} Play Video
 
 .modal.fade.popup-video{tabindex: -1, role: "dialog", :"aria-hidden" => "true"}
   .modal-dialog.modal-lg

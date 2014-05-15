@@ -1,14 +1,65 @@
-.search_box.animate
+- content_for('sub-header') do
+  %section#sub-header
+    .container
+      .row
+        .col-md-12.text-center
+          - if @course
+            %h1.title-3d= @course.name
+            %p.lead= @course.description
+          - else
+            %h1.title-3d LEARNING PORTAL
+    .divider_top
+
+%section#main_content
   .container
     .row
-      %h1.text-center.title.title-3d Learning Portal
-.container
-  .row
-    - @courses.each do |course|
-      .col-md-6
-        = link_to(course_path(course.id), class: 'a-title') do
-          %h1.page-header.text-center= course.name
-        .text-center
-          = link_to(course_path(course.id)) do
-            = set_image course.image_url
-        %p.text-info.text-description= course.description
+      %aside.col-lg-3.col-md-4.col-sm-4
+        .box_style_1
+          %h4 Courses
+          %ul.submenu-col
+            %li
+              = link_to 'All Courses',
+                root_url,
+                id: @course.present? ? '' : 'active'
+            - @courses.each do |course|
+              %li
+                = link_to "#{course.name} (#{course.tutorials.length})",
+                  course_path(course.id),
+                  id: (@course.present? && @course == course) ? 'active' : ''
+
+      .col-lg-9.col-md-8.col-sm-8
+        .row
+          - @tutorials.each do |tutorial|
+            .col-lg-4.col-md-6
+              .col-item
+                %span
+                .photo{style: "text-align: center;"}
+                  = link_to tutorial_path(tutorial.id) do
+                    %img{alt: "", src: tutorial.image_url, class: 'image-design'}
+                  .cat_row
+                    = link_to tutorial.course.name, courses_path(tutorial.course.id)
+                    %span.pull-right
+                      %i.icon-clock
+                      - if tutorial.videos.present?
+                        = time_ago_in_words(tutorial.videos.last.created_at)
+                      - else
+                        = time_ago_in_words(tutorial.created_at)
+
+                .info
+                  .row
+                    .course_info.col-md-12.col-sm-12
+                      %h4= tutorial.title
+                      - if tutorial.description.present?
+                        %p.p_description= tutorial.description
+                      - else
+                        %p.p_description No description available
+                  .separator.clearfix
+                    %p.btn-add
+                      = link_to tutorial_path(tutorial.id) do
+                        %i.glyphicon.glyphicon-list
+                        List Videos
+                    %p.btn-details
+                      = link_to tutorial_path(tutorial.id) do
+                        %i.glyphicon.glyphicon-facetime-video
+                        #{tutorial.videos.length} Videos
+    %hr/
