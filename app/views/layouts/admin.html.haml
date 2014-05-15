@@ -5,22 +5,26 @@
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
-    = render 'layouts/common/header'
-    %nav#navigation-main
+    %header
+      = render 'layouts/common/header'
+
+    %nav
+      = render 'layouts/common/nav'
+
     - if @current_user && @current_user.is_admin
       .row
         .col-md-2.nav-side
-          %ul.list-unstyled.side-li
-            %li
-              = link_to admin_courses_path do
-                %span.glyphicon.glyphicon-book Courses
-            %li
-              = link_to admin_users_path do
-                %span.glyphicon.glyphicon-user Users
-            %li
-              = link_to admin_tags_path do
-                %span.glyphicon.glyphicon-tags Tags
+          = render 'layouts/admin/left_side'
+
         .col-md-10.nav-main
           = render 'layouts/common/flash_message'
+
+          - if content_for? 'breadcrumbs'
+            = yield 'breadcrumbs'
+
           = yield
+
+    %footer
+      = render 'layouts/common/footer'

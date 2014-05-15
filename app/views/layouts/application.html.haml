@@ -1,12 +1,29 @@
 !!!
 %html{lang: 'en'}
+
   %head
     %title Video Portal
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
-    = render 'layouts/common/header'
+    %header
+      = render 'layouts/common/header'
+
+    %nav
+      = render 'layouts/common/nav'
+
     %nav#navigation-main
       = render 'layouts/common/flash_message'
+
+    - if content_for? 'sub-header'
+      = yield 'sub-header'
+
+    - if content_for? 'breadcrumbs'
+      = yield 'breadcrumbs'
+
     = yield
+
+    %footer
+      = render 'layouts/common/footer'

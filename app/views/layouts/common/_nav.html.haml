@@ -1,0 +1,23 @@
+- if @current_user
+  .container
+    .row
+      .col-md-12
+        #mobnav-btn
+        %ul.sf-menu
+          %li
+            %a{href: "/"} Home
+          - if @courses.present?
+            - @courses.each do |course|
+              %li
+                = link_to course.name, course_path(course.id)
+          - if @current_user.is_admin
+            %li
+              %a{href: "#"} Admin Panel
+              .mobnav-subarrow
+              %ul{style: "display: none;"}
+                %li
+                  = link_to 'Courses', admin_courses_path
+                %li
+                  = link_to 'Users', admin_users_path
+                %li
+                  = link_to 'Tags', admin_tags_path
