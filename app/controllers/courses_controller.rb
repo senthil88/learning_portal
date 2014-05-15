@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   skip_before_filter :verify_is_admin
 
   def index
-    @tutorials = Tutorial.includes(:videos)
+    @tutorials = Tutorial.includes(:course, :videos)
   end
 
   def show
