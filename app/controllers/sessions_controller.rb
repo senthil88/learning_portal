@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :login_required, :verify_is_admin
+  skip_before_filter :login_required, :verify_is_admin, :load_courses
 
   def new
     redirect_to root_url if current_user

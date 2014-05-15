@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :login_required, :verify_is_admin
+  before_filter :login_required, :verify_is_admin, :load_courses
 
   protected
 
@@ -16,5 +16,9 @@ class ApplicationController < ActionController::Base
 
   def login_required
     redirect_to signin_path, :alert => 'Please login.' unless current_user
+  end
+
+  def load_courses
+    @courses = Course.all
   end
 end
