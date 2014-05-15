@@ -16,6 +16,7 @@ class Tutorial < ActiveRecord::Base
     validates_format_of :image_url, meassge: 'Invalid URL', with: URI::regexp(%w(http https))
 
   # Scopes
+    default_scope { order(created_at: :desc) }
 
   # Callbacks
 
