@@ -1,5 +1,7 @@
 course_on_load = ->
 
+  $('ul.sf-menu').superfish();
+
   ### Intiate Sublime video player (For page change) ###
   sublime.load()
 
