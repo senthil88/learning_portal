@@ -19,18 +19,18 @@ class Admin::TagsController < ApplicationController
     @tag = Tag.new
   end
 
-# GET /tags/1/edit
+  # GET /tags/1/edit
   def edit
   end
 
   # POST /tags
   # POST /tags.json
   def create
-            @tag = Tag.new(tag_params)
+    @tag = Tag.new(tag_params)
 
     respond_to do |format|
        if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
+        format.html { redirect_to [:admin, @tag], notice: 'Tag was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tag }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Admin::TagsController < ApplicationController
   def update
     respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to [:admin, @tag], notice: 'Tag was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class Admin::TagsController < ApplicationController
   def destroy
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to tags_url }
+      format.html { redirect_to admin_tags_url }
       format.json { head :no_content }
     end
   end

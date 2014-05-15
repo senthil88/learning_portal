@@ -31,7 +31,7 @@ class Admin::VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to [@tutorial, @video], notice: 'Video was successfully created.' }
+        format.html { redirect_to [:admin, @tutorial, @video], notice: 'Video was successfully created.' }
         format.json { render action: 'show', status: :created, location: @video }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class Admin::VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to [@tutorial, @video], notice: 'Video was successfully updated.' }
+        format.html { redirect_to [:admin, @tutorial, @video], notice: 'Video was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,7 +59,7 @@ class Admin::VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to tutorial_videos_path(@tutorial) }
+      format.html { redirect_to admin_tutorial_videos_path(@tutorial) }
       format.json { head :no_content }
     end
   end

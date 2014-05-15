@@ -34,7 +34,7 @@ class Admin::TutorialsController < ApplicationController
     respond_to do |format|
       if @tutorial.save
         add_new_tags
-        format.html { redirect_to [@course, @tutorial], notice: 'Tutorial was successfully created.' }
+        format.html { redirect_to [:admin, @course, @tutorial], notice: 'Tutorial was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tutorial }
       else
         format.html { render action: 'new' }
@@ -50,7 +50,7 @@ class Admin::TutorialsController < ApplicationController
     respond_to do |format|
       if @tutorial.update(tutorial_params)
         add_new_tags
-        format.html { redirect_to [@course, @tutorial], notice: 'Tutorial was successfully updated.' }
+        format.html { redirect_to [:admin, @course, @tutorial], notice: 'Tutorial was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,7 +64,7 @@ class Admin::TutorialsController < ApplicationController
   def destroy
     @tutorial.destroy
     respond_to do |format|
-      format.html { redirect_to course_tutorials_path(@course) }
+      format.html { redirect_to admin_course_tutorials_path(@course) }
       format.json { head :no_content }
     end
   end
