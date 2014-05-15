@@ -5,7 +5,7 @@ class Tutorial < ActiveRecord::Base
 
     has_many :videos, -> { order(created_at: :asc) }, inverse_of: :tutorial, dependent: :destroy
     has_and_belongs_to_many :tags
-    belongs_to :course, inverse_of: :tutorials
+    belongs_to :course, inverse_of: :tutorials, counter_cache: true
 
   # Attributes
 

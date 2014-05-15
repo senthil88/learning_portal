@@ -23,7 +23,7 @@
                 id: @course.present? ? '' : 'active'
             - @courses.each do |course|
               %li
-                = link_to "#{course.name} (#{course.tutorials.length})",
+                = link_to "#{course.name} (#{course.tutorials_count})",
                   course_path(course.id),
                   id: (@course.present? && @course == course) ? 'active' : ''
 
