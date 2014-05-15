@@ -17,6 +17,10 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
+group :development do
+  gem 'bullet', '~> 4.9.0'
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
