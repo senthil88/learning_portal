@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    redirect_to signin_path, :alert => 'Please login.' unless current_user
+    redirect_to signin_path unless current_user
   end
 
   def load_courses
