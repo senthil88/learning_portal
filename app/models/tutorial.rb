@@ -1,5 +1,8 @@
 class Tutorial < ActiveRecord::Base
+  extend FriendlyId
+
   # Configuration
+    friendly_id :title, use: :slugged
 
   # Associations
 

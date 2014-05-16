@@ -51,7 +51,7 @@
                 %span
                 .photo{style: "text-align: center;"}
                   - if tutorial.videos_count > 0
-                    = link_to tutorial_path(tutorial.id) do
+                    = link_to tutorial_path(tutorial) do
                       %img{alt: "", src: tutorial.image_url, class: 'image-design'}
                   - else
                     %img{alt: "", src: tutorial.image_url, class: 'image-design'}
@@ -75,11 +75,11 @@
                   .separator.clearfix
                     -if tutorial.videos_count > 0
                       %p.btn-add
-                        = link_to tutorial_path(tutorial.id) do
+                        = link_to tutorial_path(tutorial) do
                           %i.glyphicon.glyphicon-list
                           List Videos
                       %p.btn-details
-                        = link_to tutorial_path(tutorial.id) do
+                        = link_to tutorial_path(tutorial) do
                           %i.glyphicon.glyphicon-facetime-video
                           #{tutorial.videos_count} Videos
                     -else
