@@ -37,6 +37,10 @@
               %a.po-link
                 %i.glyphicon.glyphicon-time
                 Created #{video.created_at.strftime('%d-%b-%Y')}
+            %li.po-markup{style: 'padding-left: 10px;'}
+              %a.po-link
+                %i.glyphicon.glyphicon-film
+                Duration #{video.duration}
 
           %a.button_medium.watch-now{"href" => "",
             "data-toggle" => "modal", "data-target" => ".popup-video",

@@ -21,9 +21,15 @@ class Video < ActiveRecord::Base
   # Callbacks
 
     after_validation :download_video
+    before_save :set_duration
     after_save :delete_temporary_file
 
   private
+
+    def set_duration
+      duration = FFMPEG::Movie.new(temporary_filename).duration
+      self.duration = Time.at(duration).utc.strftime("%H:%M:%S")
+    end
 
     def download_video
       if video_url_changed? || self.new_record?

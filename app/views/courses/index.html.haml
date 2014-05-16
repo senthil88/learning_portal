@@ -58,7 +58,7 @@
                   .cat_row
                     = link_to tutorial.course.name, course_path(tutorial.course)
                     %span.pull-right
-                      %i.icon-clock
+                      %i.glyphicon.glyphicon-time
                       - if tutorial.videos.present?
                         = time_ago_in_words(tutorial.videos.last.created_at)
                       - else
