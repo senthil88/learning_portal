@@ -1,8 +1,8 @@
 - content_for('sub-header') do
-  %section#sub-header
+  %section#sub-header.pattern_2
     .container
       .row
-        .col-md-12.text-center
+        .col-md-12.text-center.animate
           - if @course
             %h1.title-3d= @course.name
             %p.lead= @course.description
