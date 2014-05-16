@@ -38,9 +38,12 @@
                 %i.glyphicon.glyphicon-time
                 Created #{video.created_at.strftime('%d-%b-%Y')}
 
-          %a.button_medium.watch-now{"href" => "course_timeline.html",
+          %a.button_medium.watch-now{"href" => "",
             "data-toggle" => "modal", "data-target" => ".popup-video",
             "data-url" => video.file, "data-header" => video.title} Play Video
+          %a.button_medium.watch-now{href: video.file, target: "_blank",
+            download: ''} Download Video
+
 
 .modal.fade.popup-video{tabindex: -1, role: "dialog", :"aria-hidden" => "true"}
   .modal-dialog.modal-lg
