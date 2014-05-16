@@ -1,5 +1,8 @@
 class Course < ActiveRecord::Base
+  extend FriendlyId
+
   # Configuration
+    friendly_id :name, use: :slugged
 
   # Associations
 

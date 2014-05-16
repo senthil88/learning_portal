@@ -9,7 +9,7 @@
           - if @courses.present?
             - @courses.each do |course|
               %li
-                = link_to course.name, course_path(course.id)
+                = link_to course.name, course_path(course)
           - if @current_user.is_admin
             %li
               %a{href: "#"} Admin Panel

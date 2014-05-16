@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515103939) do
+ActiveRecord::Schema.define(version: 20140516092304) do
 
   create_table "courses", force: true do |t|
     t.string   "name",            null: false
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20140515103939) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "tutorials_count"
+    t.string   "slug"
   end
+
+  add_index "courses", ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name",       null: false

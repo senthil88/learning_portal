@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find_by_id(params[:id])
+    @course = Course.friendly.find(params[:id])
     @tutorials = @course.tutorials
     render "index"
   end
