@@ -33,7 +33,7 @@ class Video < ActiveRecord::Base
     end
 
     def temporary_filename
-      @temporary_filename ||= Rails.root.join 'tmp', "#{SecureRandom.hex}.mp4"
+      @temporary_filename ||= Rails.root.join 'tmp', "#{title}.mp4"
     end
 
     def delete_temporary_file
