@@ -33,3 +33,14 @@ h1.page-header
   background-image: image-url("logo.png")
   height: 50px
   width: 250px
+
+.breadcrumb
+  margin-top: 20px
+  background-color: #FFFFFF
+  margin-bottom: 0px
+
+.breadcrumb > li + li:before
+  content: "\00BB"
+
+.breadcrumb > .active
+  color: #070707

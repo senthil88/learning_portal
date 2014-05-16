@@ -10,6 +10,22 @@
             %h1.title-3d LEARNING PORTAL
     .divider_top
 
+- content_for('breadcrumbs') do
+  .container
+    %ol.breadcrumb
+      - if @course
+        %li
+          = link_to root_url do
+            %i.glyphicon.glyphicon-home
+            Home
+        %li.active
+          %i.glyphicon.glyphicon-folder-open
+          = @course.name
+      - else
+        %li.active
+          %i.glyphicon.glyphicon-folder-open
+          Home
+
 %section#main_content
   .container
     .row
