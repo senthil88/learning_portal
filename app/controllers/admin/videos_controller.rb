@@ -77,6 +77,6 @@ class Admin::VideosController < ApplicationController
 
     # Load Tutorial
     def load_tutorial
-      @tutorial = Tutorial.find(params[:tutorial_id])
+      @tutorial = Tutorial.friendly.find(params[:tutorial_id])
     end
 end

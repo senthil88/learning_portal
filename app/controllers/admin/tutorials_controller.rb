@@ -72,7 +72,7 @@ class Admin::TutorialsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tutorial
-      @tutorial = @course.tutorials.find(params[:id])
+      @tutorial = @course.tutorials.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -82,7 +82,7 @@ class Admin::TutorialsController < ApplicationController
 
     # Load Course
     def load_course
-      @course = Course.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
     end
 
     def setup_tags
