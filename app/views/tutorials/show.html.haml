@@ -40,9 +40,12 @@
 
           %a.button_medium.watch-now{"href" => "",
             "data-toggle" => "modal", "data-target" => ".popup-video",
-            "data-url" => video.file, "data-header" => video.title} Play Video
-          %a.button_medium.watch-now{href: video.file, target: "_blank",
-            download: ''} Download Video
+            "data-url" => video.file, "data-header" => video.title}
+            %i.glyphicon.glyphicon-play
+            Play Video
+          %a.button_medium.watch-now{href: video.file, target: "_blank", download: ''}
+            %i.glyphicon.glyphicon-download
+            Download Video
 
 
 .modal.fade.popup-video{tabindex: -1, role: "dialog", :"aria-hidden" => "true"}
