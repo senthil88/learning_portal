@@ -8,8 +8,15 @@
           %hr/
           %h4.text-center Welcome to Learning portal
           %hr/
+          - if flash.any?
+            = render 'layouts/common/flash_message'
+            %hr/
           = simple_form_for :user, html: {class: 'form-horizontal'}, url: '/sessions/create' do |f|
-            = f.input_field :username, required: false, placeholder: 'LDAP Username', label: false
-            = f.input_field :password, required: false, placeholder: 'LDAP Password', label: false
+            .input-group
+              %span.input-group-addon.glyphicon.glyphicon-user
+              = f.input_field :username, required: false, placeholder: 'LDAP Username', label: false
+            .input-group
+              %span.input-group-addon.glyphicon.glyphicon-lock
+              = f.input_field :password, required: false, placeholder: 'LDAP Password', label: false
             .form-actions
               = f.button :submit, 'LOG IN', :class => 'button_fullwidth'

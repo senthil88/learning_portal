@@ -7,15 +7,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
+
   %body
     %header
       = render 'layouts/common/header'
 
     %nav
       = render 'layouts/common/nav'
-
-    %nav#navigation-main
-      = render 'layouts/common/flash_message'
 
     - if content_for? 'sub-header'
       = yield 'sub-header'
