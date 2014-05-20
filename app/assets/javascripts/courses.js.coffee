@@ -72,6 +72,10 @@ course_on_load = ->
   $('#search-tokenfield').focusout ->
     $("#sb-search .tokenfield").fadeOut()
 
+  ### When image is not available set default###
+  $('.image-design').error ->
+    $(this).attr('src', '/assets/no_image.gif')
+
 ### Load after document ready ###
 $(document).ready course_on_load
 
