@@ -27,7 +27,7 @@
     - @tutorial.videos.each do |video|
       %article.row
         .col-md-3.col-sm-3.hidden-xs.text-center
-          %img{alt: "", src: video.image_url, class: 'image-design'}
+          %img{alt: "", src: set_image(video.image_url), class: 'image-design'}
         .col-md-9.col-sm-9
           %h3= video.title
           %p= video.description
