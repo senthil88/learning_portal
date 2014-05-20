@@ -68,7 +68,12 @@
                   .info
                     .row
                       .course_info.col-md-12.col-sm-12
-                        %h4= tutorial.title
+                        - if tutorial.videos_count > 0
+                          %h4.tutorial-title
+                            = link_to tutorial.title, tutorial_path(tutorial)
+                        - else
+                          %h4= tutorial.title
+
                         - if tutorial.description.present?
                           %p.p_description= tutorial.description
                         - else
