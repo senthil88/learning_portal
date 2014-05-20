@@ -45,48 +45,49 @@
 
       .col-lg-9.col-md-8.col-sm-8
         .row
-          - @tutorials.each do |tutorial|
-            .col-lg-4.col-md-6
-              .col-item
-                %span
-                .photo{style: "text-align: center;"}
-                  - if tutorial.videos_count > 0
-                    = link_to tutorial_path(tutorial) do
-                      %img{alt: "", src: tutorial.image_url, class: 'image-design'}
-                  - else
-                    %img{alt: "", src: tutorial.image_url, class: 'image-design'}
-                  .cat_row
-                    = link_to tutorial.course.name, course_path(tutorial.course)
-                    %span.pull-right
-                      %i.glyphicon.glyphicon-time
-                      - if tutorial.videos.present?
-                        = time_ago_in_words(tutorial.videos.last.created_at)
-                      - else
-                        = time_ago_in_words(tutorial.created_at)
+          - if @tutorials
+            - @tutorials.each do |tutorial|
+              .col-lg-4.col-md-6
+                .col-item
+                  %span
+                  .photo{style: "text-align: center;"}
+                    - if tutorial.videos_count > 0
+                      = link_to tutorial_path(tutorial) do
+                        %img{alt: "", src: set_image(tutorial.image_url), class: 'image-design'}
+                    - else
+                      %img{alt: "", src: set_image(tutorial.image_url), class: 'image-design'}
+                    .cat_row
+                      = link_to tutorial.course.name, course_path(tutorial.course)
+                      %span.pull-right
+                        %i.glyphicon.glyphicon-time
+                        - if tutorial.videos.present?
+                          = time_ago_in_words(tutorial.videos.last.created_at)
+                        - else
+                          = time_ago_in_words(tutorial.created_at)
 
-                .info
-                  .row
-                    .course_info.col-md-12.col-sm-12
-                      %h4= tutorial.title
-                      - if tutorial.description.present?
-                        %p.p_description= tutorial.description
-                      - else
-                        %p.p_description No description available
-                  .separator.clearfix
-                    -if tutorial.videos_count > 0
-                      %p.btn-add
-                        = link_to tutorial_path(tutorial) do
+                  .info
+                    .row
+                      .course_info.col-md-12.col-sm-12
+                        %h4= tutorial.title
+                        - if tutorial.description.present?
+                          %p.p_description= tutorial.description
+                        - else
+                          %p.p_description No description available
+                    .separator.clearfix
+                      -if tutorial.videos_count > 0
+                        %p.btn-add
+                          = link_to tutorial_path(tutorial) do
+                            %i.glyphicon.glyphicon-list
+                            List Videos
+                        %p.btn-details
+                          = link_to tutorial_path(tutorial) do
+                            %i.glyphicon.glyphicon-facetime-video
+                            #{tutorial.videos_count} Videos
+                      -else
+                        %p.btn-add
                           %i.glyphicon.glyphicon-list
                           List Videos
-                      %p.btn-details
-                        = link_to tutorial_path(tutorial) do
+                        %p.btn-details
                           %i.glyphicon.glyphicon-facetime-video
                           #{tutorial.videos_count} Videos
-                    -else
-                      %p.btn-add
-                        %i.glyphicon.glyphicon-list
-                        List Videos
-                      %p.btn-details
-                        %i.glyphicon.glyphicon-facetime-video
-                        #{tutorial.videos_count} Videos
     %hr/

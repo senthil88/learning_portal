@@ -21,3 +21,9 @@
                   = link_to 'Users', admin_users_path
                 %li
                   = link_to 'Tags', admin_tags_path
+        .col-md-5.pull-right.hidden-sm.hidden-xs
+          #sb-search
+            %form{action: '/'}
+              %input#search.selectpicker_nav.sb-search-input{name: "search", placeholder: "Enter your tag based search term...", type: "text", value: params[:search] ? params[:search] : ''}
+              %input.sb-search-submit{:type => "submit", :value => ""}
+                %span.sb-icon-search.glyphicon.glyphicon-search

@@ -77,7 +77,6 @@ background:#1abc9c url(pattern_2.png) repeat center top;
 color:#fff;
 position:relative;
 width:100%;
-background:#0cbdaa url(bg_sub-header.png) repeat 0 0;
 padding:30px 0 70px;
 }
 
@@ -924,17 +923,12 @@ color:#fff;
 background:#1c1c1c;
 z-index:90;
 font-size:22px;
-font-family:fontello;
 speak:none;
 font-style:normal;
 font-weight:400;
 font-variant:normal;
 text-transform:none;
 -webkit-font-smoothing:antialiased;
-}
-
-.sb-icon-search:before {
-content:"\e806";
 }
 
 .no-js .sb-search,.sb-search.sb-search-open {
@@ -2280,6 +2274,33 @@ color:#326e99;
   text-align: center;
 }
 
+#sb-search form .tokenfield {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid #ccc;
+}
+
+#sb-search form .form-control:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+
+#sb-search form .tokenfield.focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+#sb-search .tokenfield .token {
+  background-color: #0CBDAA;
+}
+
+#sb-search form .tokenfield {
+  max-width: 445px;
+  height: 38px;
+  overflow: hidden;
+  text-align: center;
+}
 @media (min-width: 1201px) and (max-width: 1400px){
 #middle-wizard {
 padding:40px 60px 35px;
