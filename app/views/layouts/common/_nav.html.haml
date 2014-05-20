@@ -26,9 +26,11 @@
                   = link_to 'Users', admin_users_path
                 %li
                   = link_to 'Tags', admin_tags_path
-        .col-md-5.pull-right.hidden-sm.hidden-xs
-          #sb-search
-            %form{action: '/'}
-              %input#search.selectpicker_nav.sb-search-input{name: "search", placeholder: "Enter your tag based search term...", type: "text", value: params[:search] ? params[:search] : ''}
-              %input.sb-search-submit{:type => "submit", :value => ""}
-                %span.sb-icon-search.glyphicon.glyphicon-search
+        .col-md-3.pull-right.hidden-sm.hidden-xs.search-bar
+          .header-search
+            %form.form{role: "form", action: '/'}
+              .input-group
+                %input.form-control.selectpicker_nav{placeholder: "Search by tag...", type: "text", name: 'search', value: params[:search] ? params[:search] : ''}
+                  %span.input-group-btn
+                    %button.btn.btn-default{type: "submit"}
+                      %li.glyphicon.glyphicon-search

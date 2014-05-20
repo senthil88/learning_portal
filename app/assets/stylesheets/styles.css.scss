@@ -2674,3 +2674,38 @@ td.full-description {
 .tutorial-title a {
   color: #2D4050;
 }
+.header-search {
+  margin-top: 7px;
+}
+.header-search form input[type="text"] {
+  color: #999 !important;
+  border: 1px solid #d8d8d8 !important;
+  border-right: 0px !important;
+  background: #fff;
+  box-shadow: none;
+  border-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 30px;
+  border-radius: 10px 0px 0px 10px !important;
+}
+.header-search .btn {
+  background: #fff !important;
+  border: 1px solid #d8d8d8 !important;
+  border-left: 0px !important;
+  color: #bbb !important;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 30px;
+  border-radius: 0px 10px 10px 0px;
+}
+.header-search .btn:hover {
+  border-radius: 0px 10px 10px 0px;
+}
+.search-bar {
+  height: 46px;
+}
