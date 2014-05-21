@@ -55,7 +55,7 @@ course_on_load = ->
 
   ### When image is not available set default###
   $('.image-design').error ->
-    $(this).attr('src', '/assets/no_image.gif')
+    $(this).attr('src', "<%= image_path('no_image.gif') %>")
 
 ### Load after document ready ###
 $(document).ready course_on_load
