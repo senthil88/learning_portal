@@ -2186,7 +2186,7 @@ color:#fff;
 }
 
 #main_content,#announce,#strips-course {
-padding:30px 0;
+padding:15px 0;
 }
 
 p,.input-group {
@@ -2722,4 +2722,11 @@ td.full-description {
 .user_name {
   padding-right: 30px;
   color: #ccc;
+}
+.no_search {
+  font-size: 150px;
+}
+.no_search_text {
+  font-size: 30px;
+  font-weight: bold;
 }

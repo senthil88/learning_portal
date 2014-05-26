@@ -45,6 +45,12 @@
 
       .col-lg-9.col-md-8.col-sm-8
         .row
+          - if @tag.nil? && @tutorials.nil?
+            .row.text-center
+              %i.glyphicon.glyphicon-search.no_search
+            .row.text-center.no_search_text
+              %p No Results Found
+
           - if @tutorials
             - @tutorials.each do |tutorial|
               .col-lg-4.col-md-6
