@@ -9,4 +9,7 @@
             %i.glyphicon.glyphicon-log-out
             SIGN OUT
         .pull-right
-          %h4.user_name Welcome, #{@current_user.name}
+          - if @current_user.fullname
+            %h4.user_name Welcome, #{@current_user.fullname}
+          - else
+            %h4.user_name Welcome, #{@current_user.name}

@@ -27,4 +27,8 @@ module LdapAuth
     end
     entities
   end
+
+  def ldap_disabled?
+    ENV['LDAP'] == 'false'
+  end
 end
