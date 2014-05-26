@@ -711,7 +711,11 @@ margin-right:2px;
 }
 
 .cat_row a:hover {
-text-decoration:none;
+text-decoration:underline;
+}
+
+.btn-add a:hover, .btn-details a:hover, .tutorial-title a:hover {
+text-decoration:underline;
 }
 
 .col-item {
@@ -2182,7 +2186,7 @@ color:#fff;
 }
 
 #main_content,#announce,#strips-course {
-padding:60px 0;
+padding:30px 0;
 }
 
 p,.input-group {
