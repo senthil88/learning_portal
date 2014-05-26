@@ -47,7 +47,9 @@ course_on_load = ->
          tag.name
         )
         response results
-    select: (event,ui) -> $('.header-search form').submit()
+    select: (event,ui) ->
+      $('.selectpicker_nav').val(ui.item.label);
+      $('.header-search form').submit()
 
   if $('.selectpicker').length > 0
     $('.selectpicker').tokenfield('setTokens', JSON.parse($('.selectpicker').attr('data')))
