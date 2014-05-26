@@ -1,5 +1,6 @@
 class Admin::TagsController < ApplicationController
   layout 'admin'
+  skip_before_filter :verify_is_admin, only: [:index]
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /tags
