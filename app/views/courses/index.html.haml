@@ -39,7 +39,7 @@
                 id: @course.present? ? '' : 'active'
             - @courses.each do |course|
               %li
-                = link_to "#{course.name} (#{course.tutorials_count})",
+                = link_to "#{course.name} (#{course.tutorials_count || 0})",
                   course_path(course),
                   id: (@course.present? && @course == course) ? 'active' : ''
 
@@ -57,7 +57,7 @@
                 .col-item
                   %span
                   .photo{style: "text-align: center;"}
-                    - if tutorial.videos_count > 0
+                    - if tutorial.videos_count && tutorial.videos_count > 0
                       = link_to tutorial_path(tutorial) do
                         %img{alt: "", src: set_image(tutorial.image_url), class: 'image-design'}
                     - else
@@ -74,7 +74,7 @@
                   .info
                     .row
                       .course_info.col-md-12.col-sm-12
-                        - if tutorial.videos_count > 0
+                        - if tutorial.videos_count && tutorial.videos_count > 0
                           %h4.tutorial-title
                             = link_to tutorial.title, tutorial_path(tutorial)
                         - else
@@ -85,7 +85,7 @@
                         - else
                           %p.p_description No description available
                     .separator.clearfix
-                      -if tutorial.videos_count > 0
+                      -if tutorial.videos_count && tutorial.videos_count > 0
                         %p.btn-add
                           = link_to tutorial_path(tutorial) do
                             %i.glyphicon.glyphicon-list
