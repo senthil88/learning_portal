@@ -2,9 +2,6 @@ course_on_load = ->
 
   $('ul.sf-menu').superfish();
 
-  ### Intiate Sublime video player (For page change) ###
-  sublime.load()
-
   ### Based on the tag, select relevant Tutorials###
   $('.tag').click (event) ->
     self = $(this)
@@ -24,10 +21,16 @@ course_on_load = ->
   ### Set dynamic video source ###
   $('.watch-now').click ->
     self = $(this)
-    sublime.unprepare('video-player')
-    $('.video-source').attr('src', self.attr('data-url'))
+    if $('#video-player').length > 0 || _V_.players['video-player']
+      _V_('video-player').dispose()
+    video =
+      '<video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls width="700" height="400">' +
+      '<source src="' + self.attr('data-url') + '" type="video/mp4">' +
+      '</video>'
     $('.video-title').text(self.attr('data-header'))
-    sublime.prepare('video-player')
+    $('.modal-body').empty()
+    $('.modal-body').append(video)
+    _V_('video-player')
 
   ### Token field for tag input ###
   $(".selectpicker").tokenfield
