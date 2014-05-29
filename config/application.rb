@@ -21,6 +21,6 @@ module VideoPortal
     # config.i18n.default_locale = :de
 
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end
