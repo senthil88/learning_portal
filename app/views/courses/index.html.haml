@@ -1,3 +1,6 @@
+- content_for('title') do
+  - @course.name if @course
+
 - content_for('sub-header') do
   %section#sub-header.pattern_2
     .container
