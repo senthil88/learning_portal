@@ -21,7 +21,6 @@ class Video < ActiveRecord::Base
   # Callbacks
 
     after_validation :download_video
-    before_save :set_duration
     after_save :delete_temporary_file
 
   private
@@ -35,6 +34,7 @@ class Video < ActiveRecord::Base
       if video_url_changed? || self.new_record?
         open(temporary_filename, "wb") { |file|  file.print open(video_url).read }
         self.file = File.open(temporary_filename)
+        set_duration
       end
     end
 
